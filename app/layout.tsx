@@ -5,6 +5,8 @@ import { Nav } from "./components/Nav";
 
 import "./styles/globals.css";
 import styles from "./styles/layout.module.css";
+import ToastContainerComponent from "@/app/components/toastContainer/ToastContainer";
+import {ToastProvider} from "@/contexts/ToastContext";
 
 interface Props {
   readonly children: ReactNode;
@@ -13,73 +15,77 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <StoreProvider>
-      <html lang="en">
+        <html lang="en">
         <body>
+        <ToastProvider>
           <section className={styles.container}>
-            <Nav />
+          <ToastContainerComponent/>
+          <Nav/>
 
-            <header className={styles.header}>
-              <Image
+          <header className={styles.header}>
+            <Image
                 src="/logo.svg"
                 className={styles.logo}
                 alt="logo"
                 width={100}
                 height={100}
-              />
-            </header>
+            />
+          </header>
 
-            <main className={styles.main}>{children}</main>
+          <main className={styles.main}>{children}</main>
 
-            <footer className={styles.footer}>
-              <span>Learn </span>
-              <a
+          <footer className={styles.footer}>
+            <span>Learn </span>
+            <a
                 className={styles.link}
                 href="https://reactjs.org"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                React
-              </a>
-              <span>, </span>
-              <a
+            >
+              React
+            </a>
+            <span>, </span>
+            <a
                 className={styles.link}
                 href="https://redux.js.org"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                Redux
-              </a>
-              <span>, </span>
-              <a
+            >
+              Redux
+            </a>
+            <span>, </span>
+            <a
                 className={styles.link}
                 href="https://redux-toolkit.js.org"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                Redux Toolkit
-              </a>
-              <span>, </span>
-              <a
+            >
+              Redux Toolkit
+            </a>
+            <span>, </span>
+            <a
                 className={styles.link}
                 href="https://react-redux.js.org"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                React Redux
-              </a>
-              ,<span> and </span>
-              <a
+            >
+              React Redux
+            </a>
+            ,<span> and </span>
+            <a
                 className={styles.link}
                 href="https://reselect.js.org"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                Reselect
-              </a>
-            </footer>
-          </section>
+            >
+              Reselect
+            </a>
+          </footer>
+        </section>
+        </ToastProvider>
         </body>
-      </html>
+        </html>
+
     </StoreProvider>
   );
 }
