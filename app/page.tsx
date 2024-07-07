@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
-import { Counter } from "./components/counter/Counter";
+'use client'
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function IndexPage() {
-  return <Counter />;
+export default function Page() {
+    const router = useRouter()
+
+    useEffect(() => {
+        router.push('/en')
+    }, []);
+
+    return <div>
+
+    </div>
 }
-
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};

@@ -1,0 +1,22 @@
+{
+  "welcome": "hello",
+  "login": "login",
+  "pages": {
+    "home": {
+      "title": "Home page",
+      "description": "Wow wowo"
+    },
+    "quotes": {
+      "title": "Quotes page",
+      "description": "This page is intended to showcase RTK Query."
+    },
+    "login": {
+      "title": "Login page",
+      "description": "this page for login users"
+    },
+    "verify": {
+      "title": "Verify",
+      "description": "This page is intended to verify that Redux state is persisted across page navigations."
+    }
+  }
+}

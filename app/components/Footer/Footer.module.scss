@@ -1,0 +1,18 @@
+@import "@/app/styles/variables";
+
+.footer {
+  grid-area: footer;
+  justify-self: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link {
+  color: $primary-color;
+}
+
+.link.active {
+  text-decoration: underline;
+}
