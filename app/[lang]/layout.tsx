@@ -10,6 +10,7 @@ import ToastContainerComponent from "@/app/components/toastContainer/ToastContai
 import {ToastProvider} from "@/contexts/ToastContext";
 import "../styles/globals.scss";
 import LanguageSwitcher from "@/app/components/LanguageSwitcher/LanguageSwitcher";
+import {Footer} from "@/app/components/Footer/Footer";
 
 interface Props {
   readonly children: ReactNode;
@@ -23,7 +24,7 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default function Layout({ children, params, auth }: Props) {
+export default function Layout({ children, auth, params }: Props) {
   const { lang} = params;
   const direction = i18n.langDirection[lang];
 
@@ -37,9 +38,7 @@ export default function Layout({ children, params, auth }: Props) {
           <section className={styles.container}>
             <Nav locale={params.lang}/>
             <header className={styles.header}>
-              <div>
-
-              </div>
+              <div>&nbsp;</div>
 
               <Image
                   src="/logo.svg"
@@ -54,55 +53,13 @@ export default function Layout({ children, params, auth }: Props) {
               </div>
 
             </header>
-            <main className={styles.main}>{children}</main>
 
-            <footer className={styles.footer}>
-              <span>Learn </span>
-              <a
-                  className={styles.link}
-                  href="https://reactjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                React
-              </a>
-              <span>, </span>
-              <a
-                  className={styles.link}
-                  href="https://redux.js.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                Redux
-              </a>
-              <span>, </span>
-              <a
-                  className={styles.link}
-                  href="https://redux-toolkit.js.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                Redux Toolkit
-              </a>
-              <span>, </span>
-              <a
-                  className={styles.link}
-                  href="https://react-redux.js.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                React Redux
-              </a>
-              ,<span> and </span>
-              <a
-                  className={styles.link}
-                  href="https://reselect.js.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-              >
-                Reselect
-              </a>
-            </footer>
+            <main className={styles.main}>
+              {children}
+              {auth}
+            </main>
+
+            <Footer/>
           </section>
         </ToastProvider>
         </body>

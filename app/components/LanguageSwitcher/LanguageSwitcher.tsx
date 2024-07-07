@@ -15,7 +15,6 @@ export default function LocaleSwitcher() {
 
     return (
         <div style={{ float: 'right', padding: '1rem' }}>
-            <p>Locale switcher:</p>
             <ul>
                 {Object.keys(AvailableLocales).map((key) => {
                     const locale = AvailableLocales[key as LocaleKeys];
