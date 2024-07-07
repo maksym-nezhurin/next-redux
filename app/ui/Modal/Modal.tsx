@@ -1,20 +1,23 @@
-'use client'
+import Link from 'next/link'
 
-import { useRouter } from 'next/navigation'
+import styles from './Modal.module.scss';
+import { FaTimes } from "react-icons/fa";
 
 export function Modal({ children }: { children: React.ReactNode }) {
-    const router = useRouter()
+    // const router = useRouter();
+    const onHandleClick = (e: React.SyntheticEvent) => {
+        console.log()
+    }
 
     return (
-        <>
-            <button
-                onClick={() => {
-                    router.back()
-                }}
-            >
-                Close modal
-            </button>
-            <div>{children}</div>
-        </>
+        <div className={styles.modalOverlay}>
+            <div className={styles.modal}>
+                <div className={styles.closeButtonWrapper}>
+                    <Link href={'/'}><FaTimes /></Link>
+                </div>
+
+                <div>{children}</div>
+            </div>
+        </div>
     )
 }
