@@ -44,11 +44,11 @@ export function FormContent({
     fields: IField[],
     register: UseFormRegister<FormValues>;
     control: any,
+    errors: FieldErrors,
     isValid: boolean;
-    errors: FieldErrors<FormValues>;
 }) {
     const { pending } = useFormStatus();
-
+    console.log('errors', errors);
     return (
         <>
             {
@@ -60,10 +60,10 @@ export function FormContent({
                             control={control}
                             rules={{ required: true }}
                             render={({ field }) => {
-                                return <span>
-                                <Input {...field} label={field.name as string} error={undefined}/>
-                                <span>{errors[field.name] ? "Username is required" : null}</span>
-                            </span>
+                                return <>
+                                    <Input {...field} error={undefined}/>
+                                    <span>{errors[field.name] ? `${field.name} is required` : null}</span>
+                            </>
                             }}
                         />
                     </div>
@@ -96,7 +96,14 @@ export function FormContent({
 
 export function GenericForm(props: IFormProps) {
     const {schema, fields, actionFunction} = props;
-    const {register, handleSubmit, control, reset, formState: {isValid, errors}} = useForm<FormValues>({
+    const {
+        register, handleSubmit,
+        control,
+        reset,
+        formState: {
+            isValid,
+            errors
+        }} = useForm<FormValues>({
         resolver: zodResolver(schema),
     });
     const [state, action] = useFormState<State, FormData>(actionFunction, null);

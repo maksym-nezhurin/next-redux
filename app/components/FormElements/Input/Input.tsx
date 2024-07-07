@@ -1,4 +1,4 @@
-import styles from './Input.module.css';
+import styles from './Input.module.scss';
 import cn from 'classnames';
 import { forwardRef } from 'react';
 import type { FieldError } from 'react-hook-form';

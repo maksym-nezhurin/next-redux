@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -9,7 +10,15 @@ const nextConfig = {
     });
 
     return config;
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/:locale/logo.svg',
+        destination: '/logo.svg', // Assuming logo.svg is directly in the public folder
+      },
+    ];
+  },
 };
 
 export default nextConfig;

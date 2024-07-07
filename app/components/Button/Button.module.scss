@@ -1,5 +1,8 @@
+@import '@/app/styles/variables';
+
 .button {
-  margin-top: 1rem;
+  background-color: $primary-color;
   font-size: 1rem;
-  padding: 0.5rem;
+  margin-top: 1rem;
+  padding: .5rem;
 }

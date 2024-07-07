@@ -1,0 +1,22 @@
+{
+  "welcome": "bonjour",
+  "login": "connexion",
+  "pages": {
+    "home": {
+      "title": "Page d'accueil",
+      "description": "Wow wowo"
+    },
+    "quotes": {
+      "title": "Page de citations",
+      "description": "Cette page est destinée à présenter RTK Query."
+    },
+    "login": {
+      "title": "Page de connexion",
+      "description": "cette page est pour la connexion des utilisateurs"
+    },
+    "verify": {
+      "title": "Vérifier",
+      "description": "Cette page a pour but de vérifier que l'état Redux est persisté à travers les navigations de page."
+    }
+  }
+}

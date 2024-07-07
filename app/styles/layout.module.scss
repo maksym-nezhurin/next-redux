@@ -1,3 +1,5 @@
+@import "variables";
+
 .container {
   display: grid;
   grid-template-areas:
@@ -23,7 +25,12 @@
   grid-area: main;
 }
 
-.header,
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -51,7 +58,7 @@
 }
 
 .link {
-  color: #704cb6;
+  color: $primary-color;
 }
 
 .link.active {

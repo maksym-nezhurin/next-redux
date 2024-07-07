@@ -3,38 +3,39 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import styles from "../styles/layout.module.css";
+import styles from "../styles/layout.module.scss";
+import {getLocalizedUrl} from "@/app/utils/i18n";
 
-export const Nav = () => {
+export const Nav = ({ locale }: { locale: string }) => {
   const pathname = usePathname();
 
   return (
     <nav className={styles.nav}>
       <Link
         className={`${styles.link} ${pathname === "/" ? styles.active : ""}`}
-        href="/"
+        href={getLocalizedUrl('/', locale)}
       >
         Home
       </Link>
         <Link
-            className={`${styles.link} ${pathname === "/login" ? styles.active : ""}`}
-            href="/login"
+            className={`${styles.link} ${pathname === `/${locale}/login` ? styles.active : ""}`}
+            href={getLocalizedUrl('/login', locale)}
         >
             Login
         </Link>
       <Link
         className={`${styles.link} ${
-          pathname === "/verify" ? styles.active : ""
+          pathname === `/${locale}/verify` ? styles.active : ""
         }`}
-        href="/verify"
+        href={getLocalizedUrl('/verify', locale)}
       >
         Verify
       </Link>
       <Link
         className={`${styles.link} ${
-          pathname === "/quotes" ? styles.active : ""
+          pathname === `/${locale}/quotes` ? styles.active : ""
         }`}
-        href="/quotes"
+        href={getLocalizedUrl("/quotes", locale)}
       >
         Quotes
       </Link>

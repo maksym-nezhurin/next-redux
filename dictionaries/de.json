@@ -1,0 +1,22 @@
+{
+  "welcome": "hallo",
+  "login": "anmelden",
+  "pages": {
+    "home": {
+      "title": "Startseite",
+      "description": "Wow wowo"
+    },
+    "quotes": {
+      "title": "Zitate-Seite",
+      "description": "Diese Seite soll RTK Query vorstellen."
+    },
+    "login": {
+      "title": "Anmeldeseite",
+      "description": "diese Seite ist für das Anmelden von Benutzern"
+    },
+    "verify": {
+      "title": "Verifizieren",
+      "description": "Diese Seite dient dazu zu überprüfen, ob der Redux-Zustand über Seiten-Navigationen hinweg erhalten bleibt."
+    }
+  }
+}
